@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Lab 3</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js"></script>
+    </head>
+    <body>
+	<p><strong><font size="12">Lab 3</font></strong></p>
+    <ul>
+      Answers for Lab 3 exercises:
+      <li>
+        3.1
+         <ul>
+           <li>
+             Node.js is the software required to run the javascript code in ajf27Server. According to expressjs.com, Express.js is a "Fast, unopinionated, minimalist web framework for Node.js". Furthermore, "Express is a minimal and flexible Node.js web application framework".  So, Express is an expansion of Node.js; Express is intended to make Node.js web development more feature friendly. According to https://nodejs.org/en, "node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine." Node provides solutions for handling asynchronous web events. Express.js expands upon Node.js by providing template engines and security features.
+           </li>
+           <li>
+             Package.json contains publishing information (such as file name and program version), a package description, keywords for searching, the project license, authors and contributors, and file dependencies. The json also includes the name of the main program file and scripts (commandline shortcuts, basically).
+           </li>
+          </ul>
+      </li>
+      <li>
+        3.2
+         <ul>
+           <li>
+             A. The files served are "static" because they don't change as the server runs. The server simply accesses the files by name (and the name has to be an exact match, extensions and all!).
+           </li>
+           <li>
+             B. The server does continue to serve the Hello-world message because the code tells the server to put out hello-world when no files are searched for. In other words, when the url is only "localhost:3000", the server will still send hello-world.
+             <br/>UPDATE: When I put app.use(express.static('public')) before app.get (blah blah), the index.html file shows up when the url is only localhost:3000. I'm not sure where Hello World went, but I think the html overrides that message now.
+           </li>
+         </ul>
+      </li>
+    </ul>
+    <img src="cute_kitten.jpg" width="100%" height="100%"/>
+    </body>
+    <img src="ninokuni2.png"/>
+</html>

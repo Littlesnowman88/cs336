@@ -1,0 +1,35 @@
+3.1 a
+--Node.js is the software required to run the javascript
+  code in ajf27Server.
+  According to expressjs.com, Express.js is a "Fast,
+  unopinionated, minimalist web framework for Node.js".
+  Furthermore, "Express is a minimal and flexible Node.js
+  web application framework". So, Express is an expansion
+  of Node.js; Express is intended to make Node.js web
+  development more feature friendly.
+  According to https://nodejs.org/en, "node.js is a JavaScript
+  runtime built on Chrome's V8 JavaScript engine." Node provides
+  solutions for handling asynchronous web events.
+  Express.js expands upon Node.js by providing template
+  engines and security features.
+
+3.1 b
+--Package.json contains publishing information (such as
+file name and program version), a package description,
+keywords for searching, the project license, authors
+and contributors, and file dependencies. The json also
+includes the name of the main program file and scripts
+(commandline shortcuts, basically).
+
+3.3
+A. The files served are "static" because they don't change as the
+server runs. The server simply accesses the files by name
+(and the name has to be an exact match, extensions and all!).
+B. The server does continue to serve the Hello-world message
+because the code tells the server to put out hello-world when
+no files are searched for. In other words, when the url is
+only "localhost:3000", the server will still send hello-world.
+B. UPDATE: When I put app.use(express.static('public')) before
+app.get (blah blah), the index.html file shows up when the url
+is only localhost:3000. I'm not sure where Hello World went,
+but I think the html overrides that message now.
