@@ -1,0 +1,7 @@
+Hello Dr. VanderLinden.
+I used the CSS Validation Service link provided in the lab04 instructions, but I received
+a serving quota error. I have attatched a picture in this folder.
+50% of the grade is for a valid, functional CSS. The CSS has been working for me both when
+I load the raw index.html in my browser and when I set up node.js
+I wish I could do more to validate my CSS, but I'll stick with what I have.
+-Andrew Fulling

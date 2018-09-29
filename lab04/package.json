@@ -1,0 +1,15 @@
+{
+  "name": "lab04",
+  "version": "1.0.0",
+  "description": "Playing with CSS",
+  "main": "ajf27Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ajf27Server.js"
+  },
+  "author": "Andrew Fulling (ajf27)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
