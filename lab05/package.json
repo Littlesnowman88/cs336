@@ -1,0 +1,17 @@
+{
+  "name": "lab05",
+  "version": "1.0.0",
+  "description": "Using Flexbox with CSS",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "npm": "^6.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ajf27Server.js"
+  },
+  "author": "Andrew Fulling",
+  "license": "ISC"
+}

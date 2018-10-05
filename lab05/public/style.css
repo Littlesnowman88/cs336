@@ -1,0 +1,96 @@
+/*VARIABLES SECTION*/
+/*includes font types and some colors*/
+/*HTML STYLING, DESKTOP/DEFAULT VIEWS*/
+/* sets default background color and font size + type for the whole page */
+body {
+  font: 24px Helvetica, Arial, sans-serif;
+  background: #999;
+}
+/* establishes default layout settings for nav, article, and aside */
+body #main {
+  min-height: 800px;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-flow: row;
+}
+/* article has a border, green background, and comes after nav */
+body #main > article {
+  padding: 5px;
+  border: 0.15em solid #222;
+  background: #dd8;
+  flex: 3 1 60%;
+  order: 2;
+}
+/*NOTE TO GRADER: This is where the settings for
+ * "desktop" style is. If I wanted to right-align
+ * for desktop, this is where I would do it.
+ * I just can't figure out what the right
+ * command is.
+ */
+/* nav's font is bigger than article, has a black border,
+  * blue background, and comes before article */
+body #main > nav {
+  font-size: 1.2em;
+  align-items: flex-end;
+  padding: 5px;
+  border: 0.15em solid #222;
+  background: #ccf;
+  flex: 1 6 20%;
+  order: 0;
+  justify-content: end;
+}
+/* aside has italic font, black border,
+ * blue background, and comes after article */
+body #main > aside {
+  padding: 5px;
+  border: 0.15em solid #222;
+  background: #ccf;
+  flex: 1 6 20%;
+  order: 3;
+  font-style: italic;
+  align-items: stretch;
+}
+/* header has large and bold font, a black border, and tan background */
+body header {
+  font-size: 2em;
+  font-style: bold;
+  display: block;
+  padding: 5px;
+  min-height: 100px;
+  border: 0.15em solid #222;
+  background: #feb;
+}
+/* footer has small font, a black border, and tan background */
+body footer {
+  font-size: 0.7em;
+  display: block;
+  padding: 5px;
+  min-height: 100px;
+  border: 0.15em solid #222;
+  background: #feb;
+}
+/*NARROW-WIDTH HTML STYLING (e.g. mobile devices, small window sizes)*/
+/* Too narrow to support three columns */
+@media all and (max-width: 640px) {
+  body #main,
+  #page {
+    flex-direction: column;
+  }
+  body #main > nav,
+  #main > article,
+  #main > aside {
+    order: 0;
+  }
+}
+body #main > nav {
+  justify-content: start;
+  min-height: 50px;
+  max-height: 50px;
+}
+body #main > aside,
+header,
+footer {
+  min-height: 50px;
+  max-height: 50px;
+}

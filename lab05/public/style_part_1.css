@@ -1,0 +1,95 @@
+body {
+    font: 24px Helvetica;
+    background: #999999;
+}
+
+#main {
+    min-height: 800px;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-flow: row;
+}
+
+#main > article {
+    padding: 5px;
+    border: .15em solid #222222;
+    background: #dddd88;
+    flex: 3 1 60%;
+    order: 2;
+}
+
+/*NOTE TO GRADER: This is where the settings for
+ * "desktop" style is. If I wanted to right-align
+ * for desktop, this is where I would do it.
+ * I just can't figure out what the right
+ * command is.
+ */
+#main > nav {
+    font-size: 1.2em;
+    align-items: flex-end;
+    padding: 5px;
+    border: .15em solid #222222;
+    background: #ccccff;
+    flex: 1 6 20%;
+    order: 1;
+    justify-content: end;
+}
+
+#main > aside {
+    padding: 5px;
+    border: .15em solid #222222;
+    background: #ccccff;
+    flex: 1 6 20%;
+    order: 3;
+    font-style: italic;
+}
+
+header {
+    font-size: 2em;
+    font-style: bold;
+    display: block;
+    padding: 5px;
+    min-height: 100px;
+    border: .15em solid #222222;
+    background: #ffeebb;
+}
+
+footer {
+  font-size: .7em;
+    display: block;
+    padding: 5px;
+    min-height: 100px;
+    border: .15em solid #222222;
+    background: #ffeebb;
+}
+
+/* Too narrow to support three columns */
+@media all and (max-width: 640px) {
+    #main, #page {
+        flex-direction: column;
+    }
+
+    #main > article, #main > aside {
+    /* Return them to document order */
+        order: 1;
+    }
+
+    /*NOTE TO GRADER: This is where the settings for
+     * "mobile" style is. If I wanted to left-align
+     * for mobile, this is where I would do it.
+     * I just can't figure out what the right
+     * command is.
+     */
+    #main > nav {
+      order: 0;
+      justify-content: start;
+      min-height: 50px;
+      max-height: 50px;
+    }
+
+    #main > aside, header, footer {
+        min-height: 50px;
+        max-height: 50px;
+    }
+}
