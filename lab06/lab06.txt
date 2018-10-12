@@ -1,0 +1,25 @@
+Exercise 6.1
+A) The browser can use GET and POST (POST for http forms).
+  The browser cannot use PUT or DELETE because the browser lacks permission
+  to modify files on the server.
+  Using curl inside the lab's directory, I successfully received responses from
+  GET, HEAD, POST, PUT, and DELETE.
+
+B)HTTP response code 404 (NOT_FOUND) is the most appropriate http
+  response code for pages not defined by an Express route.
+
+Exercise 6.2
+I worked with Catherine DeJager on trying to successfully post data to the
+   forms section but couldn't get it to format correctly when using curl.
+A) Since I couldn't get POST to properly work for my lab, I looked around online.
+   It appears that HTTP forms support GET and POST--get retrieves existent data
+   and post creates new data without overwriting old data.
+   PUT and DELETE change existing data, but HTTP forms don't hold onto data
+   like a database does, so PUT and DELETE make no sense for an http form.
+
+B) With the way I think the lab is supposed to work, the data is supposed to be
+   passed to the server in a JSON. The server can use npm body parser to retreive
+   the JSON data--when the data is formatted correctly.
+   The data becomes key-value pairs that the server can look up, since JSON
+   stores data in key-value pairs. Other than that, though, I don't think
+   the data is changed.
