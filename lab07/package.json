@@ -1,0 +1,19 @@
+{
+  "name": "lab07",
+  "version": "1.0.0",
+  "description": "Introduction to jQuery",
+  "main": "ajf27Server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "http-status-codes": "^1.3.0",
+    "jquery": "^3.3.1",
+    "nodemon": "^1.18.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ajf27Server.js"
+  },
+  "author": "Andrew Fulling",
+  "license": "ISC"
+}
