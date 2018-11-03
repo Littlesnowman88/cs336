@@ -1,0 +1,83 @@
+Exercise 9.1 Answers
+A. What good has this bundling done? How big is the new bundle file?
+  It looks like the bundling has placed all of my index.js
+    code into one place, with some modifications for React.
+    Some of my render functions have been changed, and all
+    of my anonymous javascript functions from index.js have
+    been given names. Hard-coded (html?) tags have been replaced
+    with React.createElement(...). The beginning of the bundle
+    also has some webpack initialization stuff.
+  The bundle file is 6.14kB.
+
+B. What role did Babel play in the bundling?
+  Given that I made a Babel configuration file with presets of react and
+    ES2015, I think Babel is responsible for naming my functions and
+    replacing my tags with React.createElement(...).
+    According to the Loaders: Babel link, Babel allows me to use
+    updated versions of JavaScript as well as "JavaScript syntax extensions,
+    such as React's JSX". I think Babel took my code and made it more compatible
+    with React JSX.
+
+C. Can you just load file:///path.../index.html using the browser? Why or why not?
+  When I tried to load the index.html from the app folder, the browser loaded nothing.
+  When I loaded index.html from the dist folder, the browser loaded the Comments
+    title and the name+comment Comment form. When I pressed the "Post" button,
+    it's as if the browser tried posted my data to nowhere. I suspect this is
+    because I'm trying to post from the file instead of from the server.
+
+D. In webpack.config.js, what does the loader test entry "test: /\.jsx?$/ do?"
+  According to www.pro-react.com/materials/appendixA/#configuringwebpack,
+    "test:" is "A regular expression that matches the file extensions
+    that should run through this loader (Required)."
+    This particular test entry is followed by exclusion of node_modules and
+    the loader's name of babel-loader. Therefore, I think the test entry
+    tells webpack that it should expect jsx files from its babel-loader.
+
+
+Exercise 9.2
+A. checkout the new dist/index.html and dist/bundle.js.
+   How are they different from the previous versions?
+    Upon completing steps 1-2, bundle.js size exponentially rose
+    from 6.14kB to 1.32 Megabytes!!! index.html is 237 bytes.
+    I started looking at the file but gave up after a bit. I see
+    some similarities, like the Comment Box element, but things
+    are so spread out now that I don't really want to hunt through
+    the massive file of text.
+    As for index.html, first of all, it's smaller.
+    Second, the script is still of type javascript, but its source is
+    now the bundle.
+    UPDATE: after finishing step 4, bundle.js is 758kB and index.html is 237bytes.
+    I didn't see my code in the file, and besides, the file is 22,320 lines of code long
+    (thank you PageDown button). Okay, after fixing some bugs, it's back up to 1.04MB.
+
+B. What good is it to replace the CDN library loads with module imports?
+    Module imports allow for loose coupling, which in turn allows for higher
+    Encapsulation and better project maintenance. Now, the webpage is not
+    responsible for generating the CDNs.
+    CDNs--content delivery networks--cache files for users, according to
+    "www.robertgreiner.com/2011/05/using-a-content-delivery-network-to-host-jquery."
+    Modularizing CDNs keeps developing server code separate from the tools that
+    host that server code.
+
+C. Check the network log. How many of the new modules you built are being loaded?
+   How about the CSS file?
+   Currently, I can't check the network log to see how many of the modules are being
+   loaded because localhost:3000 crashes with an error: "this.props.children is undefined."
+   The error is caused from comments.js.
+
+Exercise 9.3
+A. Try out both ports and explain the difference between them.
+  Port 3000 displays the comment data, port 3001 actually lets the user
+  see the commentBox, commentForm, etc.
+Explain what happens when editing one of the React module files.
+Focus on the displayed SPA webpage and to the bundle/index files.
+  Explanation goes here.
+Try loading /api/comments. Explain what you get.
+Does the SPA page running on this port change (due to the edits made above) as well?
+  Explanation goes here.
+
+B. Is it worth all this trouble to build a development configuration?
+  Currently, since I can't get the modularization to work, I want to say "no".
+  At the same time, you wouldn't have us practicing this for nothing, so I want
+  to say "yes."
+  Until I get the code working, I'll therefore say: "It depends."
