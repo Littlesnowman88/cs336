@@ -46,9 +46,9 @@ A. checkout the new dist/index.html and dist/bundle.js.
     As for index.html, first of all, it's smaller.
     Second, the script is still of type javascript, but its source is
     now the bundle.
-    UPDATE: after finishing step 4, bundle.js is 758kB and index.html is 237bytes.
-    I didn't see my code in the file, and besides, the file is 22,320 lines of code long
-    (thank you PageDown button). Okay, after fixing some bugs, it's back up to 1.04MB.
+    UPDATE: after finishing step 4, bundle.js is a whopping 134MB. and index.html is 237bytes.
+    I found some of my code around line 22370
+    (thank you Atom).
 
 B. What good is it to replace the CDN library loads with module imports?
     Module imports allow for loose coupling, which in turn allows for higher
@@ -61,23 +61,42 @@ B. What good is it to replace the CDN library loads with module imports?
 
 C. Check the network log. How many of the new modules you built are being loaded?
    How about the CSS file?
-   Currently, I can't check the network log to see how many of the modules are being
-   loaded because localhost:3000 crashes with an error: "this.props.children is undefined."
-   The error is caused from comments.js.
+   I think all of the modules I built are being loaded.
+   I can see the bundle.js show up in the network when I refresh the page.
+   I can also see a bunch of "comment?_=<numbers>", which might be object requests.
+   Since bundle.js incorporates my code (having found some around line 22370),
+   and since I can see all of the titles and comments, I think all of my modules
+   are being loaded!
+   How about the CSS? I didn't hunt for the CSS in bundle but I do see that all
+   of the headers on localhost:3000 are bold, as specified in base.css. Therefore,
+   I'm pretty sure the CSS file is incorporated into the bundle, too.
 
 Exercise 9.3
 A. Try out both ports and explain the difference between them.
-  Port 3000 displays the comment data, port 3001 actually lets the user
-  see the commentBox, commentForm, etc.
 Explain what happens when editing one of the React module files.
 Focus on the displayed SPA webpage and to the bundle/index files.
-  Explanation goes here.
+  At localhost:3000 and localhost:3001, I see the webpage that I expect to see:
+    I see the Comments header, headers for the different comments, and comment data.
+    I made a change to comment_box.js: I changed the render function to display
+    "Comments of Awesomeness" instead of "Comments". Within the pollInterval of 2000
+    (specified by index.js), the webpage updated to display my change! Cool.
+    I imagine that my change gets reflected in the bundle.js, since I have been able to
+    spot some of my code in bundle.js earlier (line 22370ish). I don't think index.js,
+    index.tmpl.html, or index.html actually changed, though.
+
 Try loading /api/comments. Explain what you get.
+  I expected to get the inline, consolidated, comments json that Dr. Vander Linden
+  showed at the beginning of the lab. I did get a JSON of comments, but in
+  Firefox at least, the comments are spaced out and colorful.
+
 Does the SPA page running on this port change (due to the edits made above) as well?
-  Explanation goes here.
+  Port 3001's SPA does change live (with the pollInterval of 2000), but
+  Port 3000's SPA does not change live. In fact, it doesn't even change with
+    page refreshing. I think I'd have to restart the server for port 3000 for the
+    changes to apply.
 
 B. Is it worth all this trouble to build a development configuration?
-  Currently, since I can't get the modularization to work, I want to say "no".
-  At the same time, you wouldn't have us practicing this for nothing, so I want
-  to say "yes."
-  Until I get the code working, I'll therefore say: "It depends."
+  Aside from saying "yes" because Dr. Vander Linden is making us do this lab:
+  Once the code works, this development configuration makes up for its trouble.
+  It allows me to see my changes as I make them, which is extraordinarily helpful
+  for when I have to style a web page.

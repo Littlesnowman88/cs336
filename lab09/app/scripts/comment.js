@@ -1,6 +1,5 @@
 import React from 'react';
 import Remarkable from 'remarkable';
-import '../css/base.css';
 
 module.exports = React.createClass({
   //best practice warns not to use this, but the tutorial says to do this anyway

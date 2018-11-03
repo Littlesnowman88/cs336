@@ -1,5 +1,4 @@
 import React from 'react';
-import '../css/base.css';
 
 module.exports = React.createClass({
   getInitialState: function() {

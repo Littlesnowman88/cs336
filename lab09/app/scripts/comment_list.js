@@ -1,6 +1,5 @@
 import React from 'react';
 import Comment from './comment.js';
-import '../css/base.css';
 
 module.exports = React.createClass({
   render: function() {
