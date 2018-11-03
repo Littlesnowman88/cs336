@@ -6,6 +6,7 @@ module.exports = React.createClass({
   //best practice warns not to use this, but the tutorial says to do this anyway
   rawMarkup: function() {
     var md = new Remarkable();
+    //FIXME: PROBLEM: bundle doesn't recognize "this", so browser throws an error.
     var rawMarkup = md.render(this.props.children.toString());
     return { __html: rawMarkup };
   },
