@@ -1,0 +1,60 @@
+/**Created by: Andrew Fulling (ajf27)
+ * Date: 11/07/2018
+ * For: CS336 Lab 10, with Dr. Vander Linden
+ **/
+ Exercise 10.1:
+ A) Compare and contrast MongoDB and the SQL databases you've used before.
+    Are there things that one can do that the other can't?
+      I've used SQLite on Android and I've dabbled in SQL for CS262.
+      This is my first time using MongoDB.
+      SQL and MongoDB can both create, find, and delete multiple items within
+      one command. I'm pretty sure both can update multiple items from one table
+      within one command, too. Since MongoDB collections are basically tables,
+      and since SQL update can update multiple columns of a single table, I think
+      they can both accomplish the same things with different syntax.
+      The syntax brings in the contrast. MongoDB uses object method calls.
+      This allows MongoDB to do more than SQL, such as the pretty() function
+      for displaying results. SQL has a normalized schema--great for compatibility,
+      difficult for database distribution.
+  B) You could run MongoDB locally. What advantages and/or disadvantages would that bring
+     with the cloud database you have now?
+      If I don't run MongoDB locally, I can access my files from anywhere I go. If my computer
+      dies or my flash drive of database info gets lost/damaged, I don't lose my data.
+      On the other hand, I might have to worry about web security and privacy, if I use
+      the cloud.
+      If I run MongoDB locally, I don't have to care about internet connection when I create
+      my database. I can carry it around with me and trust myself with data privacy + security.
+      I also wouldn't have to remember an account username and password with a local MongoDB.
+  C) You've built a "sandbox" database on mLab. Could you use this for a production database?
+     Why or why not?
+      mLab warned me that My database could not be used for a production database.
+      "Sandbox databases do not have redundancy and therefore are not suitable for production"
+      The explanatory web link does not explicitly mention redundancy. It does mention
+      consistent and predictable performance, though. Sandboxes are meant for creating and
+      experimenting. Thus, sandboxes are made with the expectation that something will go wrong.
+      If my sandbox database were to enter production and crash, it would cost people money to
+      report and fix. Furthermore, I could get notified at literally any time of the day and be
+      asked to fix the database.
+
+Exercise 10.2
+  A) For this integration of mLab into your application, was it better to run the modified server
+     (npm start) or the full Webpack development environment (npm run dev)? Why?
+        I don't see any differences in the app functionality; I've run both the dev server and
+        the normal server. localhost:3000/api/comments never automatically updates.
+        Both localhost:3000 and localhost:3001 update automatically as I manually change the
+        database in mLab. When I added a comment through 3001, 3000 updated and api/comments didn't.
+
+  B) Explain what happens when you modify the database using mLab's web interface rather than
+     your application. Try adding/updating/deleting comment documents.
+        For both server modes (dev and normal), when I add, update, and delete comments from
+        my comments collection, my comments website automatically updates with the database changes.
+        localhost:3000/api/comments has to refresh, though.
+
+  C) Is this comments application the sort of application that should use an SQL or a noSQL
+     database? Explain your answer.
+        I asked Jason about this one. I initially approve of noSQL for this app because database
+        calls from server.js are quick and easy. I don't know if Javascript can run SQL directly,
+        but that SQL wouldn't be as clean as the MongoDB database calls. Then Jason reminded me that
+        SQL is highly structured. We agreed that the comment data objects, if you will, are simple.
+        They don't need the high structure of SQL. Therefore, setting up the noSQL MongoDB is both
+        quicker and simpler.
