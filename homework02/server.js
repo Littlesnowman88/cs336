@@ -5,8 +5,11 @@
  * For: CS336 Homework01 with Dr. Vander Linden
  */
 const express = require('express')
+const HttpStatus = require('http-status-codes')
 const app = express()
 const port = 3000
+const HOST="localhost";
+const bodyParser = require('body-parser');
 
 /**
 * Create a Person class in Javascript
@@ -73,14 +76,60 @@ var Salem = new Person("Salem", "the Queen", "grimmMaster");
 var people = [Ruby, Weiss, Blake, Yang, Qrow, Oscar, Grimm, Salem];
 
 app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 /**
  * Handle get requests for nothing, person, person/id, person/id/name, person/id/years
  */
-app.get('/', (req, res) => {res.send("Hello! To see people of remnant, add /people to your URL. Thanks!");});
+app.get('/', (req, res) => res.redirect('/getPerson.html'));
+app.get('/getPerson.html', (req, res) => {res.redirect('/getPerson.html');});
+app.get('/addPerson.html', (req, res) => {res.redirect('/addPerson.html');});
+
+app.get("/fetchPerson", (req, res) =>
+  {
+    let found = false;
+    for (i=0; i < people.length; i++) {
+      //if the id exists in Remnant, send that person's record.
+      //console.log(req.data);
+      //console.log(req.data.value);
+      if (req.params.value === people[i].getLogIn()) {
+        let currentPerson = people[i];
+        let person = new Object();
+        person.loginID=currentPerson.getLogIn();
+        person.Name=currentPerson.getName();
+        person.years=currentPerson.getSeniority();
+        if ( //DATA MUST BE COMPLETE BEFORE SENDING
+          person.loginID !="" && person.loginID !== null &&
+          currentPerson.getFirstName() !="" && currentPerson.getFirstName() !== null &&
+          currentPerson.getLastName() !="" && currentPerson.getLastName() !== null &&
+          person.years != -1
+        ){
+          res.json(JSON.stringify(person));
+          found=true;
+          break;
+        }
+      }
+    }
+    if (found===false) {
+      //else, the requested id does not exist
+      res.status(404).json({"error": "The requested id does not exist."});
+    }
+  });
+  //FIXME FIXME
+
+
+
+
+
+
+
+
+
+app.get("/fetch", (req, res) => res.send({"content" : "Did we mention that " + req.query.name + " is free? It is!"}));
 
 /**
- * returns a JSON of all Remnant people
+ * sends a JSON of all Remnant people to the requester
  */
 app.get('/people', (req, res) => {
   let peopleRecord = ""; //create a variable to hold json information
@@ -95,7 +144,7 @@ app.get('/people', (req, res) => {
 });
 
 /**
- * returns a JSON of someone's full record with the matching loginID, or else a 404 error.
+ * sends a JSON of someone's full record with the matching loginID, or else a 404 error.
  */
 app.get('/people/:id', (req, res) => {
   let found = false;
@@ -126,7 +175,7 @@ app.get('/people/:id', (req, res) => {
 });
 
 /**
-  * returns a JSON of someone's full name, or else a 404 error.
+  * sends a JSON of someone's full name, or else a 404 error.
   */
 app.get('/people/:id/name', (req, res) => {
   let found = false;
@@ -155,7 +204,7 @@ app.get('/people/:id/name', (req, res) => {
 });
 
 /**
-  * returns a JSON of someone's seniority, or else a 404 error.
+  * sends a JSON of someone's seniority, or else a 404 error.
   */
 app.get('/people/:id/years', (req, res) => {
   let found = false;
@@ -181,6 +230,9 @@ app.get('/people/:id/years', (req, res) => {
     res.sendStatus(404);
   }
 });
+
+//error message for get (for any URLs not specified above))
+app.get('*', (req, res) => res.send(HttpStatus.getStatusText(HttpStatus.NOT_FOUND) + "\nYour file was not found at the given URL.\n"))
 
 
 app.listen(port, () => console.log("Example app listening on port " + port + "!"));
