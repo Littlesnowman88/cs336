@@ -9,15 +9,19 @@
     <script src="jquery.js"></script>
   </head>
   <body>
-    <h1>jQuery, jQuery-UI &amp; AJAX<h1>
-      <div id="formContainer">
-        <h2>Person ID:</h2>
-        <form>
-          <input id="idQuery"
+    <h1>Remnant Citizen ID:</h1>
+      <div>
+        <form id="getPerson"
+        action="/people/a" method="GET">
+          <input id="login"
             type="text"
             placeholder="person ID"
             name="personID"/>
-        <button id="getData">Get Data</button>
+          <input
+            type="submit"
+            value="Submit"
+          />
+        </form>
       </div>
   </body>
 </html>

@@ -97,7 +97,7 @@ app.get('/people', (req, res) => {
 /**
  * returns a JSON of someone's full record with the matching loginID, or else a 404 error.
  */
-app.get('/people/:id', (req, res) => {
+app.get('/person/:id', (req, res) => {
   let found = false;
   for (i=0; i < people.length; i++) {
     //if the id exists in Remnant, send that person's record.
@@ -128,7 +128,7 @@ app.get('/people/:id', (req, res) => {
 /**
   * returns a JSON of someone's full name, or else a 404 error.
   */
-app.get('/people/:id/name', (req, res) => {
+app.get('/person/:id/name', (req, res) => {
   let found = false;
   for (i=0; i < people.length; i++) {
     //if the id exists in Remnant, send that person's record.
@@ -157,7 +157,7 @@ app.get('/people/:id/name', (req, res) => {
 /**
   * returns a JSON of someone's seniority, or else a 404 error.
   */
-app.get('/people/:id/years', (req, res) => {
+app.get('/person/:id/years', (req, res) => {
   let found = false;
   for (i=0; i < people.length; i++) {
     //if the id exists in Remnant, send that person's record.
