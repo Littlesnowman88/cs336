@@ -1,0 +1,23 @@
+Exercise 11.1
+A) Compare and contrast your development and production deployments and explain
+   how each is designed.
+   Both deployments bundle everything into bundle.js and both deployements use postcss.
+   The development deployment hosts a separate development server on 3001, using 3000
+   as a proxy. The production environment will not be using localhost as a server
+   environment, so it does not need to open up extra ports and proxies on the local machine.
+
+B) List the optimizations you've configured for this production version and, if
+   possible, find evidence of them in the deployed application files.
+   We added two optimizations: OccurenceOrderPlugin and UglifyJsPlugin.
+   I'm pretty sure UglifyJsPlugin will remove whitespace from javascript (possibly in
+   bundle.js) and will compress what files it can as it serves up files.
+   I had to look up OccurenceOrderPlugin. From
+   https://github.com/styopdev/webpack-interview-questions/issues/2,
+   this opitmization can reduce the size of bundle.js by sorting modules
+   based on their occurrence (frequency of use??).
+
+Exercise 11.2
+A) What advantage is there in deploying an application to a PaaS tool like Heroku?
+
+B) How does Heroku know how to install and run your application (after pulling
+   it from the specified branch on GitHub)?
