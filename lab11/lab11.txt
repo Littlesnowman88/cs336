@@ -18,6 +18,12 @@ B) List the optimizations you've configured for this production version and, if
 
 Exercise 11.2
 A) What advantage is there in deploying an application to a PaaS tool like Heroku?
+   When I deploy my application to Heroku, I can access my application from an actual web
+   server (instead of having to host my own server). Furthermore, I don't have to hard code
+   all the Node things I need; I can just specify dependencies and heroku or other PaaS tools
+   can fetch the dependencies for me.
 
 B) How does Heroku know how to install and run your application (after pulling
    it from the specified branch on GitHub)?
+   The package.json tells heroku what the application's base is (i.e. json) and what dependencies
+   my application needs. I watched the build and know that Heroku looks at the package.json.
