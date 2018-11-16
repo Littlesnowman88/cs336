@@ -9,4 +9,8 @@ using a git subtree branch. Look here for the
 We maintain this public version of the full repo because deploying from private
 GitHub repos is tricky.
 
-Littlesnowman88's heroku URL: https://dashboard.heroku.com/apps/lab11ajf27/deploy/github
+Littlesnowman88's heroku URL:
+https://lab11ajf27.herokuapp.com/
+
+Littlesnowman88's heroku dashboard URL: 
+https://dashboard.heroku.com/apps/lab11ajf27/deploy/github

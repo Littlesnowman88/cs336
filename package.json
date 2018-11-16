@@ -1,9 +1,9 @@
 {
-    "name": "unit11-webpack",
+    "name": "react-tutorial",
     "version": "0.0.0",
     "private": true,
     "license": "see LICENSE file",
-    "description": "Comments app hosted on Heroku!",
+    "description": "Code from the React tutorial.",
     "main": "server.js",
     "dependencies": {
         "assert": "^1.4.1",
