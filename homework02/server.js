@@ -2,7 +2,7 @@
  * server.js creates a set of people records and lets a client view them
  * Created by: Andrew Fulling (ajf27)
  * Date: 11/10/2018
- * For: CS336 Homework01 with Dr. Vander Linden
+ * For: CS336 Homework02 with Dr. Vander Linden
  */
 const express = require('express')
 const HttpStatus = require('http-status-codes')
@@ -81,7 +81,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 /**
- * Handle get requests for nothing, person, person/id, person/id/name, person/id/years
+ * Handle get requests for nothing, people, person/id, person/id/name, person/id/years
  */
 app.get('/', (req, res) => res.redirect('/getPerson.html'));
 app.get('/getPerson.html', (req, res) => {res.redirect('/getPerson.html');});
