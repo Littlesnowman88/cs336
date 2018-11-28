@@ -25,7 +25,7 @@ module.exports = React.createClass({
     if (!loginID || !firstName || !lastName || !startDate) {
       return;
     }
-    this.props.onCitizenSubmit({loginID: {firstName: firstName, lastName: lastName, startDate: startDate}});
+    this.props.onCitizenSubmit({loginID: loginID, firstName: firstName, lastName: lastName, startDate: startDate});
     this.setState(this.getInitialState());
   },
   render: function() {

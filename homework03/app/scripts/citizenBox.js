@@ -19,7 +19,6 @@ module.exports = React.createClass({
   },
   handleCitizenSubmit: function(citizen) {
     var citizens = this.state.data;
-
     var newCitizens = citizens.concat([citizen]);
     this.setState({data: newCitizens});
     $.ajax({

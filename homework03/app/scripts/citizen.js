@@ -31,6 +31,9 @@ module.exports = React.createClass({
         <h3 className="citizenYears">
           Seniority (years of combat experience): {this.getSeniority(individualCitizen.startDate)}
         </h3>
+        <h3>
+        Login ID: {individualCitizen.loginID}
+        </h3>
       </div>
     );
   }
