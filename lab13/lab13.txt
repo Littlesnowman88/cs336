@@ -45,3 +45,6 @@ a Link; with a hyperlink, ReactRouter loses control of the browser history.
 Furthermore, a Link does not need the full URL; it can nagivate using only the
 tags added onto API_URL. A hyperlink requires the full URL. Links are therefore
 more adaptable to changes with the API_URL.
+
+Exercise 13.3:
+heroku deployment URL: https://lab13ajf27.herokuapp.com
