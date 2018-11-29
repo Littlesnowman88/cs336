@@ -1,0 +1,47 @@
+Exercise 13.1
+A) What benefit did using the React Router bring to the application?
+The React Router gives the client-side javascript files access to the back-stack.
+The React Router links the home URL of '/' directly to the UI, eliminating the need
+for html files like getPerson.html and addPerson.html from homework02.
+Finally, the ReactRouter allows multi-page processing, so the Edit text-links later
+in the lab can be linked to UI elements.
+
+B) Which is better, hash history or browser history?
+The app should use browser history so the visible urls stay simple for the user
+  and other server requests (like react routing and httpRequests).
+
+C) Why does the server have to be modified to support the browser history?
+Compare this with the hash-based server demonstrated in class, which didn't
+  require such modifications.
+Although the server itself technically isn't modified, the server's javascript
+  files have to be modified because the application now navigates its UI elements
+  with explicit URLs. Since the browser history navigates to URLs, the server's
+  javascript files need to handle URL requests from the browser history.
+
+
+Exercise 13.2
+A) What state does the new CommentEdit component maintain and how does that
+compare with the state maintained by the CommentBox component.
+The CommentEdit component maintains the state of the comment specified by
+/person/:id. The CommentEdit component state changes independently of the
+CommentBox component--at least, until the update or delete buttons are pressed.
+Then, MongoDB is updated with a Put or Delete request, and CommentBox updates
+to reflect the change made in CommentEdit.
+
+B) What does the CommentEdit component do when the AJAX PUT or DELETE methods
+return successfully? How does this compare with what the "Cancel" button
+provided by the CommentEdit component does?
+The successful responses to Put and Delete call this.context.router.push('/');.
+That function appends a new location to the current browser history. The browser
+then updates itself to the newest location on its history.
+The cancel Link tells ReactRouter to navigate to the given string.
+Both methods allow for back navigation. The former method does so by modifying the
+context's (browser's) back stack; the latter method does so by having React handle
+navigation.
+
+C) How is the Link added in the last step different from a simple HTML hyperlink?
+ReactRouter provides the Link. ReactRouter keeps track of the browser history with
+a Link; with a hyperlink, ReactRouter loses control of the browser history.
+Furthermore, a Link does not need the full URL; it can nagivate using only the
+tags added onto API_URL. A hyperlink requires the full URL. Links are therefore
+more adaptable to changes with the API_URL.
