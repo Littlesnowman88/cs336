@@ -48,3 +48,4 @@ more adaptable to changes with the API_URL.
 
 Exercise 13.3:
 heroku deployment URL: https://lab13ajf27.herokuapp.com
+heroku dashboard URL: https://dashboard.heroku.com/apps/lab13ajf27/deploy/github
